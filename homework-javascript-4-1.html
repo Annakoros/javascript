@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework4</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        /*1.(по желанию) Написать функцию, преобразующую число [0, 999] в объект. В объекте в соответствующих свойствах
+        записаны разряды числа: units, tens, hundreds. Если число не в заданном диапазоне вывести сообщение и вернуть пустой объект.
+        */
+        function NumberCategories(number_) {
+            if (typeof (number_) == "string") {
+                console.log('Вы ввели строку, а не число')
+            }
+            else {
+                if (number_ > 0 && number_ < 1000) {
+                    this.units = number_ % 10;
+                    this.tens = (number_ % 100 - this.units) / 10;
+                    this.hundreds = (number_ % 1000 - (this.tens * 10) - this.units) / 100;
+                    show: alert('Ваше число содержит: ' + this.hundreds + ' сотен, ' + this.tens + ' десятков, ' + this.units + ' единиц.')
+                }
+                else {
+                    console.log('Вы ввели число не в заданном диапазоне [0..999]')
+                }
+            }
+        }
+        const number_string = new NumberCategories("i'm not a number");
+        const number562 = new NumberCategories(562);
+        const number_5 = new NumberCategories(-5)
+    </script>
+</body>
