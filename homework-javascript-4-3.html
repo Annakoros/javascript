@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework4</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        //1.1. Создать объект Post
+        /*function Post(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date
+        }
+
+        Post.prototype.edit = function (text) {
+            this.text = this.text + text
+        }
+
+        function AttachedPost(author, text, date, highlighted) {
+            Post.call(this, author, text, date);
+            this.highlighted = 'false'
+        }
+
+        AttachedPost.prototype.makeTextHighlighted = function () {
+            this.highlighted = true
+        }*/
+
+        class Post {
+            constructor(author, text, date) {
+                this.author = author;
+                this.text = text;
+                this.date = date
+            }
+
+            edit(text) {
+                this.text = this.text + text;
+            }
+        }
+
+        class AttachedPost extends Post {
+            constructor(author, text, date, highlighted) {
+                super(author, text, date);
+                this.highlighted = false
+            }
+
+            makeTextHighlighted() {
+                this.highlighted = true
+            }
+        }
+
+        const post1 = new Post('Vasya', 'Hello, world!', '28.08.2021');
+        post1.edit(" I'm Vasya!");
+        alert(post1.text)
+
+        const attached_post1 = new AttachedPost('Petya', 'Hey, people!', '27.08.2021', false);
+        attached_post1.edit(" I'm Petya!");
+        alert(attached_post1.text);
+        attached_post1.makeTextHighlighted();
+        alert(attached_post1.highlighted)
+    </script>
+</body>

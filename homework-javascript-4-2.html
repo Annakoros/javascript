@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework4</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        //1.1. Создать объект Products
+        function Product(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        Product.prototype.make25PercentDiscount = function () {
+            this.price = 0.75 * this.price;
+            alert('Новая цена со скидкой 25% : ' + this.price);
+        }
+        const bread = new Product('bread', 30);
+        const butter = new Product('butter', 243);
+        bread.make25PercentDiscount();
+        butter.make25PercentDiscount();
+    </script>
+</body>
