@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework2</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        /*1. Дан код:
+        let a = 1, b = 1, c, d;
+        c = ++a; alert(c);           // 2 : "В префиксной форме инкрементирование производится сразу, а возврат — уже с обновленным значением"
+        d = b++; alert(d);           // 1 : "В постфиксной форме сначала происходит возвращение значения, а потом выполняется инкрементирование."
+        c = (2+ ++a); alert(c);      // 5 : теперь a = 2 и (2 + (1+а)) = 2+3 = 5
+        d = (2+ b++); alert(d);      // 4 : b=2 после предыдущей операции. Теперь d = 2+b = 4, а уже потом само b увеличивается на 1 и =3
+        alert(a);                    // 3 :"В префиксной форме инкрементирование производится сразу, а возврат — уже с обновленным значением"
+        alert(b);                    // 3 :"В постфиксной форме сначала происходит возвращение значения, а потом выполняется инкрементирование."
+        Почему код даёт именно такие результаты?*/
+
+        /*2. Чему будет равен x в примере ниже?*/
+        let a = 2;
+        let x = 1 + (a *= 2);
+        alert('x = ' + x) /*a присваевается значение а, умноженное на 2, т.е. 2*2 = 4. Прибавляем 1: х = 5.*/
+
+        /*3. Объявить две целочисленные переменные a и b и задать им произвольные начальные значения.Затем написать скрипт, который работает по следующему принципу:
+        если a и b положительные, вывести их разность;
+        если а и b отрицательные, вывести их произведение;
+        если а и b разных знаков, вывести их сумму; ноль можно считать положительным числом.*/
+        let a_ = Number(prompt("Введите первое число: "));
+        let b_ = Number(prompt("Введите второе число: "));
+        if (a_ * b_ >= 0) {
+            if (a_ >= 0) {
+                alert('Числа положительны, их разность: ' + (a_ - b_));
+            }
+            else {
+                alert("Числа отрицательны, их произведение: " + (a_ * b_));
+            }
+        }
+        else {
+            alert("Числа разных знаков, их сумма: " + (a_ + b_));
+        }
+
+        /*4. Реализовать основные 4 арифметические операции в виде функций с двумя параметрами.
+        Обязательно использовать оператор return.*/
+        function addition(x, y) {
+            return (x + y)
+        }
+
+        function substraction(x, y) {
+            return (x - y)
+        }
+
+        function multiplication(x, y) {
+            return (x * y)
+        }
+
+        function division(x, y) {
+            return (x / y)
+        }
+        let number1 = Number(prompt("Enter the first number, please: "));
+        let number2 = Number(prompt("Enter another number, please: "));
+        alert("Sum of numbers is " + addition(number1, number2));
+        alert("Difference of numbers is " + substraction(number1, number2));
+        alert("Product of numbers is " + multiplication(number1, number2));
+        alert("Quotient of numbers is " + division(number1, number2))
+
+        /*5. Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation),
+        где arg1, arg2 – значения аргументов, operation – строка с названием операции.
+        В зависимости от переданного значения операции выполнить одну из арифметических операций
+        (использовать функции из пункта 4) и вернуть полученное значение(использовать switch).*/
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+                case 'add':
+                    return addition(arg1, arg2);
+                    break;
+                case 'sub':
+                    return substraction(arg1, arg2);
+                    break;
+                case 'mul':
+                    return multiplication(arg1, arg2);
+                    break;
+                case 'div':
+                    return division(arg1, arg2);
+                    break;
+
+            }
+        }
+        let nbr1 = Number(prompt("So, let's count again (and get some practice in English)!:) Enter any number: "));
+        let nbr2 = Number(prompt("Enter one more number please: "));
+        let operation = prompt('Please, enter the name of operation using one of these expressions: "add", "sub", "mul", "div"');
+        alert(mathOperation(nbr1, nbr2, operation))
+
+        /*6. Программа о количестве рублей в правильном падеже*/
+        let user_money = prompt('Сколько денег Вы хотите положить на счёт?');
+        var rouble_form = '';
+        let last_nbr = Number(user_money[user_money.length - 1]);
+        switch (true) {
+            case (last_nbr == 0 || (last_nbr >= 5 && last_nbr <= 9)):
+                rouble_form = 'рублей';
+                break;
+            case (last_nbr == 1):
+                rouble_form = 'рубль'
+                break;
+            case (last_nbr >= 2 && last_nbr <= 4):
+                rouble_form = 'рубля';
+                break;
+        }
+        alert("Ваша сумма в " + user_money + " " + rouble_form + " успешно зачислена!")
+    </script>
+</body>
